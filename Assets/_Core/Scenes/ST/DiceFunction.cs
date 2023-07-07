@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DiceFunction : MonoBehaviour
 {
@@ -25,5 +26,15 @@ public class DiceFunction : MonoBehaviour
         FaceDice[3] = "axe";
         FaceDice[4] = "hand";
         FaceDice[5] = "helmet";
+    }
+
+    /// <summary>
+    /// Mix of dice.
+    /// </summary>
+    public string RollDice()
+    {
+        string _debug = FaceDice[Random.Range(0, FaceDice.Length)];
+        Debug.Log("Résultat du dès : " + _debug);
+        return _debug;
     }
 }
