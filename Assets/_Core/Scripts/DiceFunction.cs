@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class DiceFunction : MonoBehaviour
+public class DiceFunction : MonoBehaviour, Interact
 {
     public bool Interactable = false;
     
@@ -13,6 +13,15 @@ public class DiceFunction : MonoBehaviour
     private void Start()
     {
         AddFaceDice();
+    }
+
+    public void Interaction(GameObject _object)
+    {
+        if (Interactable)
+        {
+            Debug.Log("Cet objet est interactable !");
+        }
+        return;
     }
 
     /// <summary>
