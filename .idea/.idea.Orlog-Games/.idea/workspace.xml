@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4b69485d-8f56-4129-8a7f-037053beb8e0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Orlog-Games/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Orlog-Games/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Scripts/DiceFunction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Scripts/DiceFunction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Scripts/Player/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Core/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Scripts/Player/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +31,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "dice-back-end",
+    "git-widget-placeholder": "camera-controller",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
