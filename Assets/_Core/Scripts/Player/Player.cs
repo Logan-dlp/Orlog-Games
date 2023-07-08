@@ -30,28 +30,13 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if (!IsMyTrun) return;
-        
-        bool _verifFixResult = false;
-        for (int i = 0; i < Dice.Length; i++)
-        {
-            if (!Dice[i].FixResult)
-            {
-                _verifFixResult = false;
-                break;
-            }
-            else
-            {
-                _verifFixResult = true;
-            }
-        }
-        
-        if (move <= 0 || _verifFixResult)
+
+        if (move <= 0)
         {
             for (int i = 0; i < Dice.Length; i++)
             {
                 Dice[i].FixResult = true;
             }
-            manager.NextPlayer();
         }
     }
 
