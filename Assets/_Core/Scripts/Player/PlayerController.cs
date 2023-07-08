@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Player player;
     private Camera camera;
     private PlayerInput controls;
+    private GameManager manager;
     
     public float CameraClamp;
     public float Smooth;
@@ -25,9 +26,12 @@ public class PlayerController : MonoBehaviour
         player = GetComponent<Player>();
         camera = GetComponent<Camera>();
         controls = GetComponent<PlayerInput>();
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         InputAction _interact = controls.actions["Interact"];
         _interact.performed += InteractPerformed;
+
+        InputAction _confirmRoll = controls.actions["ConfirmRoll"];
     }
 
     private void Update()
@@ -56,12 +60,15 @@ public class PlayerController : MonoBehaviour
         mousePos = Input.mousePosition;
         mousePos.z = 10;
         mousePos = camera.ScreenToWorldPoint(mousePos);
-        Debug.DrawRay(transform.position, mousePos * 100 - transform.position * 100, Color.red);
+        Debug.DrawRay(transform.position, mousePos * 100 - transform.position * RayDistance, Color.red);
         if (Physics.Raycast(transform.position, mousePos * 100 - transform.position, out RaycastHit _hit, RayDistance))
         {
             if (_hit.collider.gameObject.TryGetComponent(out Interact _interact))
             {
-                // shader graph and UI object interact
+                if (_interact.IsInteractable())
+                {
+                    // shader graph and UI object...
+                }
             }
         }
     }
@@ -72,8 +79,20 @@ public class PlayerController : MonoBehaviour
         {
             if (_hit.collider.gameObject.TryGetComponent(out Interact _interact))
             {
-                _interact.Interaction(gameObject);
+                if (_interact.IsInteractable())
+                {
+                    _interact.Interaction(gameObject);
+                }
             }
         }
+    }
+
+    void ConfirmRollPerformed(InputAction.CallbackContext _ctx)
+    {
+        for (int i = 0; i < player.Dice.Length; i++)
+        {
+            player.Dice[i].Interaction(gameObject);
+        }
+        manager.NextPlayer();
     }
 }

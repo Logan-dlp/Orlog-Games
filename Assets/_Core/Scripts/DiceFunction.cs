@@ -19,24 +19,27 @@ public class DiceFunction : MonoBehaviour, Interact
 
     public void Interaction(GameObject _object)
     {
-        if (Interactable)
-        {
-            Player _player = _object.GetComponent<Player>();
-            switch (ResultDice)
-            {
-                case "axe": _player.axe++;
-                    break;
-                case "arrow": _player.arrow++;
-                    break;
-                case "shield": _player.shield++;
-                    break;
-                case "hand": _player.hand++;
-                    break;
-                case "helmet": _player.helmet++;
-                    break;
-            }
-            FixResult = true;
+        Player _player = _object.GetComponent<Player>();
+        switch (ResultDice)
+        { 
+            case "axe": _player.axe++; 
+                break;
+            case "arrow": _player.arrow++; 
+                break;
+            case "shield": _player.shield++; 
+                break;
+            case "hand": _player.hand++; 
+                break;
+            case "helmet": _player.helmet++; 
+                break;
         }
+        FixResult = true;
+        Interactable = false;
+    }
+
+    public bool IsInteractable()
+    {
+        return Interactable;
     }
 
     /// <summary>
@@ -58,5 +61,6 @@ public class DiceFunction : MonoBehaviour, Interact
     public void RollDice()
     {
         ResultDice = FaceDice[Random.Range(0, FaceDice.Length)];
+        Interactable = true;
     }
 }
