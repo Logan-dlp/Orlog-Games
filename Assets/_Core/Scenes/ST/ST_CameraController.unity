@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 68993388}
   - component: {fileID: 68993392}
   - component: {fileID: 68993391}
+  - component: {fileID: 68993393}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -229,8 +230,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1d5dd8d833d6f4e94a96e78a8c43c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraClamp: 9.52
-  Smooth: 3.79
+  CameraClamp: 10
+  Smooth: 4
+  CameraAngle: 10
 --- !u!114 &68993392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +277,27 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &68993393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68993387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 834b1fe7f042e904fa77d307f63a64c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsMyTrun: 0
+  PlayerLife: 15
+  DivineFavors: 0
+  Dice: []
+  axe: 0
+  arrow: 0
+  shield: 0
+  hand: 0
+  helmet: 0
 --- !u!1 &683449529
 GameObject:
   m_ObjectHideFlags: 0

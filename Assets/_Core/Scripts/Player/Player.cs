@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerController))]
 public class Player : MonoBehaviour
 {
+    private GameManager manager;
+    
     public bool IsMyTrun = false;
     
     public float PlayerLife = 15;
@@ -20,17 +22,36 @@ public class Player : MonoBehaviour
     public int hand = 0;
     public int helmet = 0;
 
-    
+    private void Start()
+    {
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
     private void Update()
     {
         if (!IsMyTrun) return;
         
-        if (move <= 0)
+        bool _verifFixResult = false;
+        for (int i = 0; i < Dice.Length; i++)
+        {
+            if (!Dice[i].FixResult)
+            {
+                _verifFixResult = false;
+                break;
+            }
+            else
+            {
+                _verifFixResult = true;
+            }
+        }
+        
+        if (move <= 0 || _verifFixResult)
         {
             for (int i = 0; i < Dice.Length; i++)
             {
                 Dice[i].FixResult = true;
             }
+            manager.NextPlayer();
         }
     }
 
