@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerController))]
+[RequireComponent(typeof(PlayerController)), RequireComponent(typeof(PlayerInput))]
 public class Player : MonoBehaviour
 {
     private GameManager manager;
