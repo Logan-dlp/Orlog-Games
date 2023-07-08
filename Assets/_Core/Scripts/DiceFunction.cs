@@ -6,7 +6,9 @@ using Random = UnityEngine.Random;
 
 public class DiceFunction : MonoBehaviour, Interact
 {
+    public bool FixResult = false;
     public bool Interactable = false;
+    public string ResultDice;
     
     private string[] FaceDice;
 
@@ -19,9 +21,22 @@ public class DiceFunction : MonoBehaviour, Interact
     {
         if (Interactable)
         {
-            Debug.Log("Cet objet est interactable !");
+            Player _player = _object.GetComponent<Player>();
+            switch (ResultDice)
+            {
+                case "axe": _player.axe++;
+                    break;
+                case "arrow": _player.arrow++;
+                    break;
+                case "shield": _player.shield++;
+                    break;
+                case "hand": _player.hand++;
+                    break;
+                case "helmet": _player.helmet++;
+                    break;
+            }
+            FixResult = true;
         }
-        return;
     }
 
     /// <summary>
@@ -40,10 +55,8 @@ public class DiceFunction : MonoBehaviour, Interact
     /// <summary>
     /// Mix of dice.
     /// </summary>
-    public string RollDice()
+    public void RollDice()
     {
-        string _debug = FaceDice[Random.Range(0, FaceDice.Length)];
-        Debug.Log("Résultat du dès : " + _debug);
-        return _debug;
+        ResultDice = FaceDice[Random.Range(0, FaceDice.Length)];
     }
 }
