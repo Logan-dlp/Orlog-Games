@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private List<Player> Player;
     private int PlayerInGame;
+    private int countTurn = 0;
 
     void CoinStartGame()
     {
@@ -25,5 +26,11 @@ public class GameManager : MonoBehaviour
             PlayerInGame++;
         }
         Player[PlayerInGame].IsMyTrun = true;
+        countTurn++;
+        if (countTurn == 2)
+        {
+            // Add Attack
+            countTurn = 0;
+        }
     }
 }
