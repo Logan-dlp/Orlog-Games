@@ -6,10 +6,12 @@ using Random = UnityEngine.Random;
 
 public class DiceFunction : MonoBehaviour, Interact
 {
+    public DiceParameter DiceParameter;
+    
     public bool FixResult = false;
     public bool Interactable = false;
     public string ResultDice;
-    
+
     private string[] FaceDice;
 
     private void Start()
