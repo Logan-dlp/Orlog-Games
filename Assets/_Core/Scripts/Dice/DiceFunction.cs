@@ -13,10 +13,19 @@ public class DiceFunction : MonoBehaviour, Interact
     public string ResultDice;
 
     private string[] FaceDice;
+    private Rigidbody rb;
+    private bool haveCollision = false;
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         AddFaceDice();
+    }
+
+    private void OnCollisionStay(Collision _collision)
+    {
+        if (_collision.gameObject.layer == LayerMask.NameToLayer("CollisionDiceTrue")) haveCollision = true;
+        else haveCollision = false;
     }
 
     public void Interaction(GameObject _object)
@@ -62,7 +71,15 @@ public class DiceFunction : MonoBehaviour, Interact
     /// </summary>
     public void RollDice()
     {
-        ResultDice = FaceDice[Random.Range(0, FaceDice.Length)];
-        Interactable = true;
+        int _rand = Random.Range(0, FaceDice.Length);
+        ResultDice = FaceDice[_rand];
+        if (haveCollision)
+        {
+            if (rb.IsSleeping())
+            {
+                transform.eulerAngles = DiceParameter.DiceFaceRotation[_rand];
+                Interactable = true;
+            }
+        }
     }
 }

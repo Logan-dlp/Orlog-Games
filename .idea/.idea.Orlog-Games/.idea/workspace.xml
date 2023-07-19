@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4b69485d-8f56-4129-8a7f-037053beb8e0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Orlog-Games/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Orlog-Games/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Scripts/DiceFunction.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Scripts/DiceFunction.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Core/Scripts/Dice/DiceFunction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Scripts/Dice/DiceFunction.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +97,7 @@
       <updated>1688763861749</updated>
       <workItem from="1688763866374" duration="6210000" />
       <workItem from="1688819792550" duration="2198000" />
-      <workItem from="1689759043308" duration="1424000" />
+      <workItem from="1689759043308" duration="3852000" />
     </task>
     <servers />
   </component>
